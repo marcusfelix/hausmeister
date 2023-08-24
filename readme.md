@@ -1,5 +1,5 @@
 # Hausmeister
-For janitors, landlords, hausmeisters and administrators looking for a custom solution on customer relationship service
+Mobile app for janitors, landlords, hausmeisters and administrators looking for a custom solution on customer relationship service
 
 ![Hausmeister](./hausmeister-1.jpeg)
 
