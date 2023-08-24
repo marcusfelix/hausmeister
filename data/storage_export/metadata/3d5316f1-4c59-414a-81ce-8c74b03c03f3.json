@@ -1,0 +1,19 @@
+{
+  "name": "users/nAjC6T4lhCjdG4hMYI2sIiro19Yl",
+  "bucket": "acme-36346.appspot.com",
+  "metageneration": 1,
+  "generation": 1689259599387,
+  "contentType": "application/octet-stream",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "3b8e8e5f-99fd-44cf-8fad-c522ac675764"
+  ],
+  "etag": "TnN7D9eGs160PgRWwHoxl1wOylU",
+  "customMetadata": {},
+  "timeCreated": "2023-07-13T14:46:39.387Z",
+  "updated": "2023-07-13T14:46:39.387Z",
+  "size": 21268,
+  "md5Hash": "utWT2ltiq/gBOzIrCGnlBA==",
+  "crc32c": "300259761"
+}

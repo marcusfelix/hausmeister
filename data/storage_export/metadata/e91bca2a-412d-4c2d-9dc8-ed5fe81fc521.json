@@ -1,0 +1,19 @@
+{
+  "name": "attachments/b6c97c9e-3a99-489c-ae13-6f0bddfbde81",
+  "bucket": "acme-36346.appspot.com",
+  "metageneration": 1,
+  "generation": 1689267742271,
+  "contentType": "application/octet-stream",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "58d020cf-a895-4de1-a003-ff178bfd511e"
+  ],
+  "etag": "Znnpnu4tZ/qm0TA1b1EKiK+HWOI",
+  "customMetadata": {},
+  "timeCreated": "2023-07-13T17:02:22.271Z",
+  "updated": "2023-07-13T17:02:22.271Z",
+  "size": 21268,
+  "md5Hash": "utWT2ltiq/gBOzIrCGnlBA==",
+  "crc32c": "300259761"
+}

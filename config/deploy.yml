@@ -1,0 +1,133 @@
+# Name of your application. Used to uniquely configure containers.
+service: hausmeister
+
+# Name of the container image.
+image: deploidstudio/hausmeister-fire
+
+# Deploy to these servers.
+servers:
+  web:
+    hosts:
+      - 165.232.113.129
+    labels:
+      traefik.http.routers.hausmeister-3000.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 3000
+      traefik.http.routers.hausmeister-4000.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 4000
+      traefik.http.routers.hausmeister-4400.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 4400
+      traefik.http.routers.hausmeister-4500.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 4500
+      traefik.http.routers.hausmeister-5000.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 5000
+      traefik.http.routers.hausmeister-5001.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 5001
+      traefik.http.routers.hausmeister-8001.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 8001
+      traefik.http.routers.hausmeister-8080.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 8080
+      traefik.http.routers.hausmeister-8085.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 8085
+      traefik.http.routers.hausmeister-9000.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 9000
+      traefik.http.routers.hausmeister-9099.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 9099
+      traefik.http.routers.hausmeister-9199.rule: Host(`hausmeister.deploid.app`) && PathPrefix(`/`)
+      traefik.http.routers.hausmeister-3000.entrypoints: web
+      traefik.http.routers.hausmeister-3000.service: app1-service
+      traefik.http.services.hausmeister.loadbalancer.server.port: 9199
+      traefik.frontend.headers.customFrameOptionsValue: 'ALLOW-FROM deploid.studio deploid.pages.dev localhost'
+      
+
+# Credentials for your image host.
+registry:
+  # Specify the registry server, if you're not using Docker Hub
+  server: ghcr.io
+  username: marcusfelix
+
+  # Always use an access token rather than real password when possible.
+  password:
+    - GITHUB_TOKEN
+
+# Inject ENV variables into containers (secrets come from .env).
+# env:
+#   clear:
+#     DB_HOST: 192.168.0.2
+#   secret:
+#     - RAILS_MASTER_KEY
+
+# Call a broadcast command on deploys.
+# audit_broadcast_cmd:
+#   bin/broadcast_to_bc
+
+# Use a different ssh user than root
+# ssh:
+#   user: app
+
+# Configure builder setup.
+builder:
+  multiarch: false
+  # args:
+  #   RUBY_VERSION: 3.2.0
+  # secrets:
+  #   - GITHUB_TOKEN
+  # remote:
+  #   arch: amd64
+  #   host: ssh://app@192.168.0.1
+
+# Use accessory services (secrets come from .env).
+# accessories:
+#   db:
+#     image: mysql:8.0
+#     host: 192.168.0.2
+#     port: 3306
+#     env:
+#       clear:
+#         MYSQL_ROOT_HOST: '%'
+#       secret:
+#         - MYSQL_ROOT_PASSWORD
+#     files:
+#       - config/mysql/production.cnf:/etc/mysql/my.cnf
+#       - db/production.sql.erb:/docker-entrypoint-initdb.d/setup.sql
+#     directories:
+#       - data:/var/lib/mysql
+#   redis:
+#     image: redis:7.0
+#     host: 192.168.0.2
+#     port: 6379
+#     directories:
+#       - data:/data
+
+# Configure custom arguments for Traefik
+# traefik:
+#   args:
+#     accesslog: true
+#     accesslog.format: json
+
+# Configure a custom healthcheck (default is /up on port 3000)
+healthcheck:
+  path: /
+  port: 5000
+  max_attempts: 99
